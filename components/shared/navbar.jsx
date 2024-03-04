@@ -9,19 +9,19 @@ const Navbar = () => {
   const { user } = useContext(authContext);
   console.log(user);
 
-  // const logoutHandler = async () => {
-  //   try {
-  //     const response = await fetch("/api/logout", {
-  //       method: "POST",
-  //       headers: { "content-type": "application/json" },
-  //     });
-  //     const responseData = await response.json();
-  //     console.log(responseData.success);
-  //     window.location.reload();
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // };
+  const logoutHandler = async () => {
+    try {
+      const response = await fetch("/api/logout", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+      });
+      const responseData = await response.json();
+      console.log(responseData.success);
+      window.location.reload();
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -79,7 +79,7 @@ const Navbar = () => {
                 About
               </Link>
             </li>
-            {/* {user?.email ? (
+            {user?.email ? (
               <li>
                 <button
                   onClick={logoutHandler}
@@ -97,7 +97,7 @@ const Navbar = () => {
                   Login
                 </Link>
               </li>
-            )} */}
+            )}
           </ul>
         </div>
       </div>
