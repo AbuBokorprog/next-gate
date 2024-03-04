@@ -22,7 +22,7 @@ export function middleware(request) {
     }
   }
 
-  if (request.nextUrl.pathname === "/about") {
+  if (request.nextUrl.pathname === "/contact") {
     if (!authToken) {
       return NextResponse.redirect(new URL("/login", request.url));
     }
@@ -33,5 +33,5 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/about", "/login", "/sign_up"],
+  matcher: ["/contact", "/login", "/sign_up"],
 };

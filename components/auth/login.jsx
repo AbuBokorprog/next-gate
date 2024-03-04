@@ -34,7 +34,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="my-10 lg:my-20">
       <div className="w-full max-w-lg mx-auto p-4 border bg-primary-100 border-dark-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-dark-800 dark:border-dark-700">
         <h2 className="text-3xl text-center font-medium text-dark-900 dark:text-white">
           Sign In
@@ -79,27 +79,11 @@ const Login = () => {
               <p role="alert">Password is required</p>
             )}
           </div>
-
-          {/* {isLoading ? (
-          <button
-            type="submit"
-            className="w-full text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            Loading....
-          </button>
-        ) : (
-          <button
-            type="submit"
-            className="w-full text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            Registered
-          </button>
-        )} */}
           <button
             type="submit"
             className="w-full text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
-            Registered
+            Login
           </button>
           <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
             Are You new here?

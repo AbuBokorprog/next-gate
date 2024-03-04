@@ -1,4 +1,4 @@
-import About from "@/components/about";
+import About from "@/components/contact";
 import React from "react";
 
 export default function page() {
