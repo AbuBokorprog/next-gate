@@ -2,8 +2,10 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
+  const router = useRouter();
   const {
     register,
     reset,
@@ -11,9 +13,25 @@ const Login = () => {
     handleSubmit,
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const responseData = await response.json();
+      if (responseData.success) {
+        router.push("/");
+        alert(responseData.success);
+        reset();
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   };
+
   return (
     <div>
       <div className="w-full max-w-lg mx-auto p-4 border bg-primary-100 border-dark-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-dark-800 dark:border-dark-700">

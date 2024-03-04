@@ -2,9 +2,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const SignUp = () => {
-  const [isMatch, setIsMatch] = useState();
+  const router = useRouter();
+  const [isMatch, setIsMatch] = useState("");
   const {
     register,
     reset,
@@ -12,8 +14,32 @@ const SignUp = () => {
     handleSubmit,
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const name = data.displayName;
+    const email = data.email;
+    const password = data.password;
+    const confirmPassword = data.confirmPassword;
+    const photoURL = data.photoURL;
+    const newUser = { name, email, password, photoURL };
+    if (password !== confirmPassword) {
+      setIsMatch("Password do not match");
+    } else {
+      try {
+        const response = await fetch("/api/users", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(newUser),
+        });
+        const responseData = await response.json();
+        if (responseData.success) {
+          router.push("/");
+          alert(responseData.success);
+          reset();
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
   };
 
   return (

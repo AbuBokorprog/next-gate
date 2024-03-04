@@ -1,7 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/shared/navbar";
+
 import Footer from "@/components/shared/footer";
+import Nav from "./navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,7 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} mx-auto container lg:px-20`}>
-        <Navbar />
+        <Nav />
         <div>{children}</div>
         <Footer />
       </body>
