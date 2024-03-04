@@ -35,6 +35,7 @@ const SignUp = () => {
           router.push("/");
           alert(responseData.success);
           reset();
+          window.location.reload();
         }
       } catch (error) {
         console.log(error.message);

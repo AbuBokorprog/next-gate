@@ -3,6 +3,9 @@ import jwt from "jsonwebtoken";
 import User from "@/models/users";
 export async function GET(req) {
   const token = req.cookies.get("NextGate")?.value;
+  if (!token) {
+    return NextResponse.json(null);
+  }
   const { _id } = jwt.verify(token, process.env.JWT_KEY);
   const currentUser = await User.findById(_id);
   console.log(currentUser);
