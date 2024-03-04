@@ -5,7 +5,7 @@ export async function database() {
     const { connection } = await mongoose.connect(
       `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASS}@cluster0.kq57d4a.mongodb.net/next-gate?retryWrites=true&w=majority`
     );
-    console.log("connection database", connection);
+    console.log("connection database");
   } catch (error) {
     console.log("Failed to connect", error.message);
   }
